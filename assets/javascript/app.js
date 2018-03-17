@@ -5,17 +5,16 @@ $(document).ready(function () {
     $("#gameScreen").hide();
     //initialize button to start game
     $('.startGame').on("click", function () {
-        $('.gameScreen').show();
+
         $(this).hide();
+        $('#startScreen').hide();
+        $('#questionSpace').show();
         console.log('start button disappearssssss');
     });
 
 
 
 
-    $("#startScreen").fadeIn(1000 * 5, function () {
-        // fadeIn function
-    });
 
 
     $("#questionSpace").hide()
