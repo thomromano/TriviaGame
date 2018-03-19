@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/thomromano/TriviaGame/issues"
   },
-  "homepage": "https://github.com/thomromano/TriviaGame#readme"
+  "homepage": "https://github.com/thomromano/TriviaGame#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
 }

@@ -1,48 +1,46 @@
 'use strict';
 
-//initialize .js
-$(document).ready(function () {
-    $("#gameScreen").hide();
-    //initialize button to start game
-    $('.startGame').on("click", function () {
+$(document).ready(function() {
 
-        $(this).hide();
-        $('#startScreen').hide();
-        $('#questionSpace').show();
-        console.log('start button disappearssssss');
-    });
+    $("#messageSection").hide();
+    
+   
+    
 
 
-
-
-
+    
 
     $("#questionSpace").hide()
-    var correctCounter = 0,
+    let correctCounter = 0,
         incorrectCounter = 0,
         unansweredCounter = 0,
         currentQuestionIndex = 0;
 
+
+ 
+
     function randomNum(x) {
-        var roll = Math.floor(Math.random() * x);
+        const roll = Math.floor(Math.random() * x);
         return roll;
     }
 
+    
+
     function countDown() {
-        $('.pickAnswer').click(function () {
+        $('.pickAnswer').click(function() {
             $(this).data('clicked', true);
         });
         var i = 30;
-        var myInterval = setInterval(function () {
+        var myInterval = setInterval(function() {
 
             if (i < 10) {
                 $('#timerSeconds').html("0" + i);
-                $(".pickAnswer").on("click", function () {
+                $(".pickAnswer").on("click", function() {
                     clearInterval(myInterval);
                 })
             } else {
                 $('#timerSeconds').html(i);
-                $(".pickAnswer").on("click", function () {
+                $(".pickAnswer").on("click", function() {
                     clearInterval(myInterval);
                 })
             }
@@ -52,8 +50,8 @@ $(document).ready(function () {
                 clearInterval(myInterval);
                 currentQuestionIndex++;
                 $('#timer').effect("pulsate", {
-                    times: 25
-                }, 1000 * 5);
+                    times: 5
+                }, 1000 * 1);
                 i = 30;
                 postQuestion(currentQuestionIndex);
             } else {
@@ -62,105 +60,51 @@ $(document).ready(function () {
         }, 1000);
     }
 
-
-
-    //create object to hold all questions and answers
-    const game = [{
-            question: "'The Sun Also Rises' was written by:",
-            possibleAnswers: ["Ernest Hemingway", "George Eliot", "F Scott Fitzgerald", "Stephen Hawking"],
-            answer: 0
+    var questions = [
+        
+        {
+            "q": "'The Sun Also Rises' was written by:",
+            "c": ["Ernest Hemingway", "George Eliot", "F Scott Fitzgerald", "Stephen Hawking"],
+            "answer": 0
+        },
+        
+        {
+            "q": "Mary Shelley is best-known for which of the following novels?",
+            "c": ["'The Awakening'", "'A Wrinkle In Time'", "'Frankenstein'", "'Little Women'"],
+            "answer": 2
+        },
+        
+        {
+            "q": "This author wrote 'Brave New World'.",
+            "c": ["George Orwell", "Aldous Huxley", "Joseph Conrad", "Margaret Mitchell"],
+            "answer": 1
+        },
+        
+        {
+            "q": '"Call me Ishmael" is the famous opening line from which classic novel?',
+            "c": ["'On the Road' by Jack Kerouac", "'As I Lay Dying' by William Faulkner", "'Ulysses' by James Joyce'", "'Moby-Dick' by Herman Melville"],
+            "answer": 3
+        },
+        
+        {
+            "q": "Which Brontë sister was the author of 'Wuthering Heights'?",
+            "c": ["Charlotte Brontë", "Emily Brontë", "Anne Brontë", "Elizabeth Brontë"],
+            "answer": 1
+        },
+        
+        {
+            "q": "This author wrote 'One Hundred Years of Solitude.",
+            "c": ["Gabriel García Márquez", "Paulo Coelho", "Carlos Fuentes", "Miguel de Cervantes"],
+            "answer": 0
         },
 
         {
-            question: "Mary Shelley is best-known for which of the following novels?",
-            possibleAnswers: ["'The Awakening'", "'A Wrinkle In Time'", "'Frankenstein'", "'Little Women'"],
-            answer: 2
+            "q": "'The Stranger' was written by this French writer:",
+            "c": ["Louis-Ferdinand Céline", "Jean-Paul Sartre", "Albert Camus", "Marcel Proust"],
+            "answer": 2
         },
-
-        {
-            question: "This author wrote 'Brave New World'.",
-            possibleAnswers: ["George Orwell", "Aldous Huxley", "Joseph Conrad", "Margaret Mitchell"],
-            answer: 1
-        },
-
-        {
-            question: '"Call me Ishmael" is the famous opening line from which classic novel?',
-            possibleAnswers: ["'On the Road' by Jack Kerouac", "'As I Lay Dying' by William Faulkner", "'Ulysses' by James Joyce'", "'Moby-Dick' by Herman Melville"],
-            answer: 3
-        },
-
-        {
-            question: "Which Brontë sister was the author of 'Wuthering Heights'?",
-            possibleAnswers: ["Charlotte Brontë", "Emily Brontë", "Anne Brontë", "Elizabeth Brontë"],
-            answer: 1
-        },
-
-        {
-            question: "This author wrote 'One Hundred Years of Solitude.",
-            possibleAnswers: ["Gabriel García Márquez", "Paulo Coelho", "Carlos Fuentes", "Miguel de Cervantes"],
-            answer: 0
-        },
-
-        // ADD MORE QUESTIONS
-    ]
-
-    //event to start timer
-    // let number = 30;
-    // $('#timeLeft').on('click', run);
-
-    // function decrement() {
-    //     number--;
-    //     $('#timeLeft').html('<h2>' + number + "seconds" +'</h2>');
-    //     if (number === 0) {
-    //         stop();   
-    //     }
-    // }
-
-    // function run() {
-    //     counter = setInterval(decrement, 1000);
-    // }
-
-    // function stop() {
-    //     clearInterval(counter);
-    // }
-
-    // run();
-
-    //create form for questions
-
-    // function formTemplate(data) {
-    //     var questionString = "<form id = 'questionOne'>" + data.question + "<br>";
-    //     var possibleAnswers = data.possibleAnswers;
-    //     for (var i = 0; i < possibleAnswers.length; i++) {
-    //         var possible = possibleAnswers[i];
-    //         console.log(possible);
-    //         questionString = questionString + "<input type='radio' name='" + data.id + "' value=" + i + ">" + possible;
-
-    //     }
-    //     return questionString + "</form>";
-    // }
-    // window.formTemplate = formTemplate;
-
-    // function buildQuestions() {
-    //     var questionHTML = ''
-    //     for (var i = 0; i < game.questions.length; i++) {
-    //         questionHTML = questionHTML + formTemplate(game.questions[i]);
-    //     }
-    //     $('#question-box').append(questionHTML);
-
-    // }
-
-    // function isCorrect(question) {
-    //     var answers = $('[name=' + question.id + ']');
-    //     var correct = answers.eq(question.answer);
-    //     var checked = correct.is(':checked');
-    //     return checked;
-    // }
-
-    // buildQuestions();
-
-
-    //for loop for answers array
+        
+    ]; // ADD MORE QUESTIONS
 
 
     function postQuestion(n) {
@@ -178,14 +122,14 @@ $(document).ready(function () {
 
 
         } else {
-            resetGame(); // the conditional successfully loops the game
+            resetGame(); // loops the game
         }
 
-        $(".pickAnswer").on("click", function () {
+        $(".pickAnswer").on("click", function() {
             var userChoice = $(this).attr('indexnum'); // stored as a string not a number
             userChoice = parseInt(userChoice);
 
-            // checks if user is correct and will tally accordingly
+            // checks if user is correct
             if (userChoice === questions[currentQuestionIndex].answer) {
                 correctCounter++;
                 currentQuestionIndex++
@@ -226,18 +170,22 @@ $(document).ready(function () {
         $('#gameMessage').append("<h4>Total Incorrect: " + incorrectCounter + "</h4>");
         $('#gameMessage').append("<h4>Total Unanswered: " + unansweredCounter + "</h4>");
 
-        setTimeout(startTrivia, 1000 * 10);
+        setTimeout(startTrivia, 1000 * 15);
 
     }
 
 
 
+    $("#startButton").on("click", function() {
+        $("#buttonRow").hide();
+        $("#introCard").remove();
+        $("#timer").append("<span id='timerMinutes'>00</span>:<span id='timerSeconds'>00</span>");
+        $("#questionSpace").show();
+
+        startTrivia();
 
 
-
-
-
-
+    })
 
 
 });

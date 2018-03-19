@@ -1,4 +1,8 @@
-.container {
+body {
     background-image: url("stacked-books.jpeg");
 
 };
+
+.container {
+    background-color: #b66767;
+}
