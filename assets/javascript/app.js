@@ -3,6 +3,7 @@
 $(document).ready(function() {
 
     $("#messageSection").hide();
+    $("#button2").hide();
     
    
     
@@ -93,7 +94,7 @@ $(document).ready(function() {
         },
         
         {
-            "q": "This author wrote 'One Hundred Years of Solitude.",
+            "q": "This author wrote 'One Hundred Years of Solitude.'",
             "c": ["Gabriel García Márquez", "Paulo Coelho", "Carlos Fuentes", "Miguel de Cervantes"],
             "answer": 0
         },
@@ -103,6 +104,12 @@ $(document).ready(function() {
             "c": ["Louis-Ferdinand Céline", "Jean-Paul Sartre", "Albert Camus", "Marcel Proust"],
             "answer": 2
         },
+
+        {
+            "q": "John Steinbeck won a Pulitzer Prize for this novel.",
+            "c": ["'Of Mice and Men'", "'The Grapes of Wrath'", "'East of Eden'", "'The Winter of Our Discontent'"],
+            "answer": 1
+        }
         
     ]; // ADD MORE QUESTIONS
 
@@ -164,13 +171,14 @@ $(document).ready(function() {
         $('#questionContainer').hide();
         $('#choices').hide();
         $('#timer').hide()
-
+        $("#button2").show();
         $('#gameMessage').append("<h2>You have completed the game!</h2>");
         $('#gameMessage').append("<h4>Total Correct: " + correctCounter + "</h4>");
         $('#gameMessage').append("<h4>Total Incorrect: " + incorrectCounter + "</h4>");
         $('#gameMessage').append("<h4>Total Unanswered: " + unansweredCounter + "</h4>");
+        
+        //setTimeout(startTrivia, 1000 * 15);
 
-        setTimeout(startTrivia, 1000 * 15);
 
     }
 
@@ -181,6 +189,18 @@ $(document).ready(function() {
         $("#introCard").remove();
         $("#timer").append("<span id='timerMinutes'>00</span>:<span id='timerSeconds'>00</span>");
         $("#questionSpace").show();
+
+        startTrivia();
+
+
+    })
+
+    $("#button2").on("click", function() {
+        $("#buttonRow").hide();
+        $("#introCard").remove();
+        $("#timer").append("<span id='timerMinutes'>00</span>:<span id='timerSeconds'>00</span>");
+        $("#questionSpace").show();
+        $("#button2").hide();
 
         startTrivia();
 

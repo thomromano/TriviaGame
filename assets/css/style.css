@@ -1,8 +1,77 @@
 body {
-    background-image: url("stacked-books.jpeg");
+  
+    background-repeat: no-repeat;
+    background-attachment: relative;
+    background-position: center; 
 
 };
 
-.container {
-    background-color: #b66767;
+
+
+#header {
+    background-color: rgb(181, 105, 105)
+}
+
+#startButton {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 0px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+#mainScreen {
+    background-color: tomato;
+}
+  
+#questionSpace {
+    color: #fff;
+    margin-top: 40px;
+    padding: 10px;
+    
+    height: 500px;
+}
+
+#questionContainer {
+    background-color: rgb(181, 105, 105);
+}
+
+#question {
+    font-size: 37px;
+}
+
+
+
+
+#timer {
+    color: #e74c3c;
+    font-size: 47px;
+}
+
+
+
+#choices {
+    font-size: 23px;
+    background-image: url("stacked-books.jpeg");
+}
+
+.pickAnswer {
+    border: solid 5px #fff;
+}
+
+.pickAnswer, .pickAnswer:hover {
+    display: block;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.pickAnswer:hover {
+    border: solid 5px #f1c40f;
+    cursor: pointer;
 }
