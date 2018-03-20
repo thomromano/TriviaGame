@@ -17,6 +17,7 @@ My game experiences a ~~few,~~ one significant problem~~s~~.
 + ~~Fix the code so that all questions are displayed~~
 + Add more questions
 + Figure out what is going on with my timer
++ Make code more efficient
 + Add more style with css - specifically so that the answer portion doesn't move when switching between a one-line question and
 a two-line question
 + Add sticky footer for copyright
