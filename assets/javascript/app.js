@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
     $("#messageSection").hide();
-    $("#button2").hide();
+    $("#tryAgain").hide();
     
    
     
@@ -171,7 +171,7 @@ $(document).ready(function() {
         $('#questionContainer').hide();
         $('#choices').hide();
         $('#timer').hide()
-        $("#button2").show();
+        $("#tryAgain").show();
         $('#gameMessage').append("<h2>You have completed the game!</h2>");
         $('#gameMessage').append("<h4>Total Correct: " + correctCounter + "</h4>");
         $('#gameMessage').append("<h4>Total Incorrect: " + incorrectCounter + "</h4>");
@@ -195,12 +195,12 @@ $(document).ready(function() {
 
     })
 
-    $("#button2").on("click", function() {
+    $("#tryAgain").on("click", function() {
         $("#buttonRow").hide();
         $("#introCard").remove();
         
         $("#questionSpace").show();
-        $("#button2").hide();
+        $("#tryAgain").hide();
 
         startTrivia();
 
