@@ -140,7 +140,7 @@ $(document).ready(function() {
             if (userChoice === questions[currentQuestionIndex].answer) {
                 correctCounter++;
                 currentQuestionIndex++
-                randomCongrats();
+                
 
             } else {
                 incorrectCounter++;
@@ -177,7 +177,7 @@ $(document).ready(function() {
         $('#gameMessage').append("<h4>Total Incorrect: " + incorrectCounter + "</h4>");
         $('#gameMessage').append("<h4>Total Unanswered: " + unansweredCounter + "</h4>");
         
-        //setTimeout(startTrivia, 1000 * 15);
+        
 
 
     }
@@ -198,7 +198,7 @@ $(document).ready(function() {
     $("#button2").on("click", function() {
         $("#buttonRow").hide();
         $("#introCard").remove();
-        $("#timer").append("<span id='timerMinutes'>00</span>:<span id='timerSeconds'>00</span>");
+        
         $("#questionSpace").show();
         $("#button2").hide();
 
